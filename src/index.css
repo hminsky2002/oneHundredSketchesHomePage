@@ -2,9 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: phililta;
+  src: url('assets/PhiliItaRus.woff');
+}
+
 .homebody {
   background-image: url("assets/paperbackground.jpg");
   background-size: cover;
   min-height: 100vh;
 }
 
+.runner {
+  @apply absolute w-[60vw] max-w-[600px] h-auto pt-6;
+}
+
+h1 {
+  font-family: phililta, 'Courier New', Courier, monospace;
+}
+
+.marquee {
+  white-space: nowrap;
+  display: inline-block;
+  animation: marquee 8s linear infinite;
+}
+
+.marquee h1 {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
