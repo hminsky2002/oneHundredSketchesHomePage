@@ -4,21 +4,32 @@
 
 @font-face {
   font-family: phililta;
-  src: url('assets/PhiliItaRus.woff');
+  src: url('assets/fonts/PhiliItaRus.woff');
 }
 
-.homebody {
+@font-face {
+  font-family: notcouriersansbold;
+  src: url('assets/fonts/NotCourierSans-Bold.woff');
+}
+
+
+body {
   background-image: url("assets/paperbackground.jpg");
-  background-size: cover;
-  min-height: 100vh;
+  background-size: fill;
+  width: 100vw;
+  height: 100vh;
 }
 
 .runner {
-  @apply absolute w-[60vw] max-w-[600px] h-auto pt-6;
+  @apply absolute w-[60vw] md:w-[40vh] max-w-[600px] h-auto pt-6;
 }
 
 h1 {
   font-family: phililta, 'Courier New', Courier, monospace;
+}
+
+h2 {
+  font-family: notcouriersansbold, 'Courier New', Courier, monospace;
 }
 
 .marquee {
@@ -35,6 +46,7 @@ h1 {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-50%, 0, 0);
   }
