@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.homebody {
+  background-image: url("assets/crumpledpaperbackground.png");
+  background-size: cover;
+  min-height: 100vh;
+}
+

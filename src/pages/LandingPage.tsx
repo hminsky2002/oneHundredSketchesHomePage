@@ -1,6 +1,8 @@
 
 const LandingPage = () => {
-  return <div className="homebody"></div>;
+  return <div className="homebody">
+    
+  </div>;
 };
 
 export { LandingPage };
