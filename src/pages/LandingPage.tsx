@@ -20,21 +20,21 @@ const LandingPage = () => {
             duration: 0.8,
             delay: 0.5,
           }}
-          className="w-full border-t-2 border-b-2 border-sketch-green overflow-hidden absolute"
+          className="absolute w-full overflow-hidden border-b-2 border-t-2 border-sketch-green"
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.0, delay: 0.5 }}
-            className="border-t-4 border-b-4 border-green-600"
+            className="border-b-4 border-t-4 border-green-600"
           >
             <a href="https://www.caveat.nyc/events/100-sketches-per-hour-3-13-2025">
               <div className="flex w-full whitespace-nowrap">
                 <div className="marquee">
-                  <h1 className="text-2xl md:text-6xl lg:text-8xl text-sketch-green px-4 pt-2">
+                  <h1 className="px-4 pt-2 text-2xl text-sketch-green md:text-6xl lg:text-8xl">
                     March 13th 7PM at Caveat NYC •
                   </h1>
-                  <h1 className="text-2xl md:text-6xl lg:text-8xl text-sketch-green px-4 pt-2">
+                  <h1 className="px-4 pt-2 text-2xl text-sketch-green md:text-6xl lg:text-8xl">
                     March 13th 7PM at Caveat NYC •
                   </h1>
                 </div>
@@ -43,34 +43,63 @@ const LandingPage = () => {
           </motion.div>
         </motion.div>
         <div className="pt-8">
-          <div className="flex pt-8 justify-center md:h-screen ">
+          <div className="flex justify-center pt-8 md:h-screen">
             <div className="md:mt-[120px]">
               <motion.img
                 initial={{ opacity: 0, left: "-20vw", translateX: "0%" }}
-                animate={{ opacity: 1, left: "40%", translateX: "-50%" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                animate={{ opacity: 1, left: "40%", translateX: "-50%", x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  stiffness: 300,
+                  damping: 10,
+                }}
                 className="runner"
                 src={greenRunner}
                 style={{ zIndex: 2 }}
+                drag="x"
+                dragElastic={0.7}
+                dragConstraints={{ left: -100, right: 100 }}
+                whileDrag={{ scale: 1.1 }}
               />
               <motion.img
                 initial={{ opacity: 0, left: "-20vw", translateX: "0%" }}
-                animate={{ opacity: 1, left: "50%", translateX: "-50%" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                animate={{ opacity: 1, left: "50%", translateX: "-50%", x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  stiffness: 300,
+                  damping: 10,
+                  delay: 0.2,
+                }}
                 className="runner"
                 src={runner}
                 style={{ zIndex: 3 }}
+                drag="x"
+                dragElastic={0.7}
+                dragConstraints={{ left: -100, right: 100 }}
+                whileDrag={{ scale: 1.1 }}
               />
               <motion.img
                 initial={{ opacity: 0, left: "-20vw", translateX: "0%" }}
-                animate={{ opacity: 1, left: "60%", translateX: "-50%" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+                animate={{ opacity: 1, left: "60%", translateX: "-50%", x: 0 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  stiffness: 300,
+                  damping: 10,
+                  delay: 0.4,
+                }}
                 className="runner"
                 src={pinkRunner}
                 style={{ zIndex: 2 }}
+                drag="x"
+                dragElastic={0.7}
+                dragConstraints={{ left: -100, right: 100 }}
+                whileDrag={{ scale: 1.1 }}
               />
             </div>
-            <div className="relative w-[400px] h-auto flex flex-col items-center md:h-[400px] md:w-[600px] md:mt-[100px]">
+            <div className="pointer-events-none relative flex h-auto w-[400px] flex-col items-center md:mt-[100px] md:h-[400px] md:w-[600px]">
               <motion.img
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -95,7 +124,7 @@ const LandingPage = () => {
                   ease: "easeOut",
                   delay: 1.5,
                 }}
-                className=" absolute top-0 right-[80%] max-w-[60px]"
+                className="absolute right-[80%] top-0 max-w-[60px]"
                 style={{ zIndex: 2 }}
               >
                 <motion.img
@@ -118,7 +147,7 @@ const LandingPage = () => {
                   style={{ zIndex: 2 }}
                 />
               </motion.div>
-              <div className="absolute top-[200px] w-[90%] flex flex-col items-center md:top-[300px]">
+              <div className="pointer-events-none absolute top-[200px] flex w-[90%] flex-col items-center md:top-[300px]">
                 <motion.img
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -139,10 +168,10 @@ const LandingPage = () => {
                     scale: { type: "spring", bounce: 0.5 },
                     delay: 1.2,
                   }}
-                  className="text-center mt-4"
+                  className="mt-4 text-center"
                   style={{ zIndex: 3 }}
                 >
-                  <h1 className="text-4xl md:text-6xl  text-sketch-green">
+                  <h1 className="text-4xl text-sketch-green md:text-6xl">
                     In one hour (or less)
                   </h1>
                 </motion.div>
@@ -151,26 +180,27 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="mx-auto justify-center flex flex-col ">
+      <div className="mx-auto flex flex-col justify-center gap-0">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
             duration: 1,
             scale: { type: "spring", bounce: 0.5 },
-            delay: 2,
+            delay: 2.0,
           }}
-          className=""
+          className="mt-4"
           style={{ zIndex: 3 }}
         >
-          <h2 className="mt-[150px] mx-4 md:mt-0 md:mx-auto text-2xl md:text-6xl max-w-[600px] text-center  text-black ">
-            The only sketch comedy group in new york city doing 100 sketches in
-            under an hour.
+          <h2 className="mx-4 mt-[100px] max-w-[600px] text-center text-2xl text-sketch-pink md:mx-auto md:mt-2 md:text-6xl">
+            Next Show At Caveat NYC <br /> March 13th at 7:00PM.
           </h2>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, left: "-20vw", translateX: "-50%" }}
+          animate={{ opacity: 1, left: "50%", translateX: "0%" }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
           transition={{
             duration: 1,
             scale: { type: "spring", bounce: 0.5 },
@@ -179,9 +209,26 @@ const LandingPage = () => {
           className="mt-4"
           style={{ zIndex: 3 }}
         >
-          <h2 className=" md:mt-2 mx-4 md:mx-auto text-2xl md:text-6xl max-w-[600px] text-center  text-sketch-pink ">
-            Next Show At Caveat NYC March 13th at 7:00PM. Ticket Link coming
-            soon
+          <a href="https://www.caveat.nyc/events/100-sketches-per-hour-3-13-2025">
+            <h2 className="mx-4 max-w-[600px] text-center text-4xl font-extrabold text-sketch-pink underline md:mx-auto md:mt-2 md:text-6xl">
+              CLICK HERE TO BUY TICKETS
+            </h2>
+          </a>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            scale: { type: "spring", bounce: 0.5 },
+            delay: 2.0,
+          }}
+          className="mt-2"
+          style={{ zIndex: 3 }}
+        >
+          <h2 className="mx-4 max-w-[600px] text-center text-2xl text-sketch-green md:mx-auto md:mt-0 md:text-6xl">
+            The only sketch comedy group in new york city doing 100 sketches in
+            under an hour.
           </h2>
         </motion.div>
       </div>
