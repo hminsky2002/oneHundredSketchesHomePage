@@ -28,16 +28,18 @@ const LandingPage = () => {
             transition={{ duration: 1.0, delay: 0.5 }}
             className="border-t-4 border-b-4 border-green-600"
           >
-            <div className="flex w-full whitespace-nowrap">
-              <div className="marquee">
-                <h1 className="text-2xl md:text-6xl lg:text-8xl text-sketch-green px-4 pt-2">
-                  March 13th 7PM at Caveat NYC •
-                </h1>
-                <h1 className="text-2xl md:text-6xl lg:text-8xl text-sketch-green px-4 pt-2">
-                  March 13th 7PM at Caveat NYC •
-                </h1>
+            <a href="https://www.caveat.nyc/events/100-sketches-per-hour-3-13-2025">
+              <div className="flex w-full whitespace-nowrap">
+                <div className="marquee">
+                  <h1 className="text-2xl md:text-6xl lg:text-8xl text-sketch-green px-4 pt-2">
+                    March 13th 7PM at Caveat NYC •
+                  </h1>
+                  <h1 className="text-2xl md:text-6xl lg:text-8xl text-sketch-green px-4 pt-2">
+                    March 13th 7PM at Caveat NYC •
+                  </h1>
+                </div>
               </div>
-            </div>
+            </a>
           </motion.div>
         </motion.div>
         <div className="pt-8">
@@ -91,7 +93,7 @@ const LandingPage = () => {
                 transition={{
                   duration: 1,
                   ease: "easeOut",
-                  delay: 1.5
+                  delay: 1.5,
                 }}
                 className=" absolute top-0 right-[80%] max-w-[60px]"
                 style={{ zIndex: 2 }}
@@ -109,7 +111,7 @@ const LandingPage = () => {
                     times: [0, 0.8, 1.0, 1.6, 2],
                     repeat: Infinity,
                     repeatDelay: 1,
-                    delay: 1.5
+                    delay: 1.5,
                   }}
                   className="max-w-[60px]"
                   src={twinkle}
