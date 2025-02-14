@@ -1,4 +1,5 @@
 import * as motion from "motion/react-client";
+import Marquee from "react-fast-marquee";
 import frame from "../assets/paper-frame.png";
 import onehundred from "../assets/100_sketches.png";
 import runner from "../assets/runner.png";
@@ -30,14 +31,13 @@ const LandingPage = () => {
           >
             <a href="https://www.caveat.nyc/events/100-sketches-per-hour-3-13-2025">
               <div className="flex w-full whitespace-nowrap">
-                <div className="marquee">
-                  <h1 className="px-4 pt-2 text-2xl text-sketch-green md:text-6xl lg:text-8xl">
-                    March 13th 7PM at Caveat NYC •
-                  </h1>
-                  <h1 className="px-4 pt-2 text-2xl text-sketch-green md:text-6xl lg:text-8xl">
-                    March 13th 7PM at Caveat NYC •
-                  </h1>
-                </div>
+                <Marquee autoFill={true}>
+                  <div className="marquee">
+                    <h1 className="px-4 pt-2 text-2xl text-sketch-green md:text-6xl lg:text-8xl">
+                      March 13th 7PM at Caveat NYC •
+                    </h1>
+                  </div>
+                </Marquee>
               </div>
             </a>
           </motion.div>

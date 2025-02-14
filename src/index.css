@@ -31,23 +31,3 @@ h1 {
 h2 {
   font-family: notcouriersansbold, 'Courier New', Courier, monospace;
 }
-
-.marquee {
-  white-space: nowrap;
-  display: inline-block;
-  animation: marquee 8s linear infinite;
-}
-
-.marquee h1 {
-  display: inline-block;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
