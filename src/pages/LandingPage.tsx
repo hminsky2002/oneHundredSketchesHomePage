@@ -43,7 +43,7 @@ const LandingPage = () => {
           </motion.div>
         </motion.div>
         <div className="pt-8">
-          <div className="flex justify-center pt-8 md:h-screen">
+          <div className="flex justify-center pt-8 md:h-[800px]">
             <div className="md:mt-[120px]">
               <motion.img
                 initial={{ opacity: 0, left: "-20vw", translateX: "0%" }}
