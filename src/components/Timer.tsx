@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 
 const Timer = () => {
   // Timer counts from 0 seconds up to 3700 seconds
-  const [timeElapsed, setTimeElapsed] = useState(0);
+  const [timeElapsed, setTimeElapsed] = useState(3600);
   const [isPaused, setIsPaused] = useState(true);
 
   useEffect(() => {
     if (isPaused || timeElapsed >= 3700) return;
     const interval = setInterval(() => {
-      setTimeElapsed((prev) => prev + 1);
-    }, 1000);
+      setTimeElapsed((prev) => prev - 1);
+    }, 1200);
     return () => clearInterval(interval);
   }, [isPaused, timeElapsed]);
 
