@@ -24,6 +24,10 @@ body {
   @apply absolute w-[60vw] md:w-[40vh] max-w-[600px] h-auto pt-6;
 }
 
+.tiny-runner {
+  @apply absolute w-[30vw] md:w-[20vh] max-w-[300px] h-auto pt-6;
+}
+
 h1 {
   font-family: phililta, 'Courier New', Courier, monospace;
 }
