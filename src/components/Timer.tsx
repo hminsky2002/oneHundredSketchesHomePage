@@ -24,12 +24,11 @@ const Timer = () => {
     localStorage.setItem("isPaused", JSON.stringify(isPaused));
   }, [isPaused]);
 
-  // Timer effect: subtract one second every 1.2 seconds if not paused.
   useEffect(() => {
     if (isPaused || timeElapsed <= 0) return;
     const interval = setInterval(() => {
       setTimeElapsed((prev) => prev - 1);
-    }, 1200);
+    }, 1000);
     return () => clearInterval(interval);
   }, [isPaused, timeElapsed]);
 
