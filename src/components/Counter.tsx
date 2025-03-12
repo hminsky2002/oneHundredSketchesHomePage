@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Counter = () => {
@@ -10,10 +10,26 @@ const Counter = () => {
     setCount((prev) => prev + delta);
     setAnimate(true);
     setTimeout(() => setAnimate(false), 200);
-    if(count !== 50){
-      setHasClicked(false)
+    if (count !== 50) {
+      setHasClicked(false);
     }
   };
+
+  const discoBlocks = useMemo(() => {
+    if (count === 100) {
+      return Array.from({ length: 40 }, () => ({
+        x: Array.from(
+          { length: 4 },
+          () => Math.floor(Math.random() * 2000) - 1000,
+        ),
+        y: Array.from(
+          { length: 4 },
+          () => Math.floor(Math.random() * 800) - 400,
+        ),
+      }));
+    }
+    return [];
+  }, [count]);
 
   return (
     <div className="relative flex h-[500px] w-[500px] flex-col items-center space-y-4 bg-white bg-opacity-50 p-2 text-center">
@@ -91,6 +107,62 @@ const Counter = () => {
             </motion.div>
           </motion.div>
         </AnimatePresence>
+      )}
+      {count === 100 && !hasClicked && (
+        <>
+          <motion.div
+            className="pointer-events-none fixed left-0 top-0 z-[-1] h-full w-full"
+            initial={{ backgroundColor: "#000000" }}
+            animate={{
+              backgroundColor: [
+                "#FF0000",
+                "#00FF00",
+                "#0000FF",
+                "#FFFF00",
+                "#FF00FF",
+                "#00FFFF",
+              ],
+            }}
+            transition={{
+              duration: 3,
+              ease: "easeInOut",
+              repeat: Infinity,
+            }}
+          />
+
+          <AnimatePresence>
+            <motion.div
+              className="absolute z-[100] h-full w-full cursor-pointer"
+              onClick={() => setHasClicked(true)}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {discoBlocks.map((pos, index) => (
+                <motion.div
+                  key={index}
+                  className="pointer-events-none absolute"
+                  animate={{
+                    x: pos.x,
+                    y: pos.y,
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    duration: 10,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "loop",
+                  }}
+                >
+                  <motion.h1 className="z-[100] bg-sketch-green p-4 text-5xl text-sketch-pink">
+                    100 sketches!
+                  </motion.h1>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </>
       )}
     </div>
   );
