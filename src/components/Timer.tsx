@@ -28,7 +28,7 @@ const Timer = () => {
     if (isPaused || timeElapsed <= 0) return;
     const interval = setInterval(() => {
       setTimeElapsed((prev) => prev - 1);
-    }, 1000);
+    }, 1020);
     return () => clearInterval(interval);
   }, [isPaused, timeElapsed]);
 
